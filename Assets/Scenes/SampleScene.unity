@@ -1710,7 +1710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Driver
   steerSpeed: 200
-  moveSpeed: 10
+  moveSpeed: 15
 --- !u!50 &490735563
 Rigidbody2D:
   serializedVersion: 5
