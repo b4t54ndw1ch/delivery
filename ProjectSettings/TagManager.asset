@@ -10,6 +10,9 @@ TagManager:
   - TriangleCustomer
   - SquareCustomer
   - CircleCustomer
+  - House
+  - Rock
+  - Tree
   layers:
   - Default
   - TransparentFX
