@@ -17,64 +17,54 @@ public class Delivery : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        PackagePickup();
-        PackageDelivery();
-
-
-        void PackagePickup()
+        if (other.tag == "TrianglePackage")
         {
-            if (other.tag == "TrianglePackage")
+            if (hasPackage)
             {
-                if (hasPackage)
-                {
-                    Debug.Log("You already have a Package.");
-                    return;
-                }
-                else
-                {
-                    Destroy(other.gameObject, destroyDelay);
-                    hasTriangle = true;
-                    hasPackage = true;
-                    Debug.Log("TrianglePackage received.");
-                }
+                Debug.Log("You already have a Package.");
+                return;
+            }
+            else
+            {
+                Destroy(other.gameObject, destroyDelay);
+                hasTriangle = true;
+                hasPackage = true;
+                Debug.Log("TrianglePackage received.");
             }
 
-            if (other.tag == "CirclePackage")
-            {
-                if (hasPackage)
-                {
-                    Debug.Log("You already have a Package.");
-                    return;
-                }
-                else
-                {
-                    Destroy(other.gameObject, destroyDelay);
-                    hasCircle = true;
-                    hasPackage = true;
-                    Debug.Log("CirclePackage received.");
-                }
-            }
-
-            if (other.tag == "SquarePackage")
-            {
-                if (hasPackage)
-                {
-                    Debug.Log("You already have a Package.");
-                    return;
-                }
-                else
-                {
-                    Destroy(other.gameObject, destroyDelay);
-                    hasSquare = true;
-                    hasPackage = true;
-                    Debug.Log("SquarePackage received.");
-                }
-            }
-        }
-
-        void PackageDelivery()
+        } else if (other.tag == "CirclePackage")
         {
-            if (other.tag == "TriangleCustomer" && hasTriangle)
+            if (hasPackage)
+            {
+                Debug.Log("You already have a Package.");
+                return;
+            }
+            else
+            {
+                Destroy(other.gameObject, destroyDelay);
+                hasCircle = true;
+                hasPackage = true;
+                Debug.Log("CirclePackage received.");
+            }
+
+        } else if (other.tag == "SquarePackage")
+        {
+            if (hasPackage)
+            {
+                Debug.Log("You already have a Package.");
+                return;
+            }
+            else
+            {
+                Destroy(other.gameObject, destroyDelay);
+                hasSquare = true;
+                hasPackage = true;
+                Debug.Log("SquarePackage received.");
+            }
+
+        } else if (other.tag == "TriangleCustomer")
+        {
+            if (hasTriangle)
             {
                 hasTriangle = false;
                 hasPackage = false;
@@ -85,7 +75,9 @@ public class Delivery : MonoBehaviour
                 Debug.Log("TriangleCustomer detected.");
             }
 
-            if (other.tag == "CircleCustomer" && hasCircle)
+        } else if (other.tag == "CircleCustomer")
+        {
+            if (hasCircle)
             {
                 hasCircle = false;
                 hasPackage = false;
@@ -96,7 +88,9 @@ public class Delivery : MonoBehaviour
                 Debug.Log("CircleCustomer detected.");
             }
 
-            if (other.tag == "SquareCustomer" && hasSquare)
+        } else if (other.tag == "SquareCustomer")
+        {
+            if (hasSquare)
             {
                 hasSquare = false;
                 hasPackage = false;
@@ -106,9 +100,10 @@ public class Delivery : MonoBehaviour
             {
                 Debug.Log("SquareCustomer detected.");
             }
-        }
+        } 
     }
 }
+
 
 
 
