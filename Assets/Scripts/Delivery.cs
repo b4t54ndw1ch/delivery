@@ -19,7 +19,9 @@ public class Delivery : MonoBehaviour
         else if (other.tag == "SquarePackage")
         {
             Debug.Log("SquarePackage received.");
-        }else if (other.tag == "TriangleCustomer")
+        } 
+        
+        if (other.tag == "TriangleCustomer")
         {
             Debug.Log("TriangleCustomer delivered.");
         }else if (other.tag == "CircleCustomer")
