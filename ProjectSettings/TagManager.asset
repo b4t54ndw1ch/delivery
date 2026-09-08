@@ -7,6 +7,9 @@ TagManager:
   - TrianglePackage
   - SquarePackage
   - CirclePackage
+  - TriangleCustomer
+  - SquareCustomer
+  - CircleCustomer
   layers:
   - Default
   - TransparentFX
