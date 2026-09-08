@@ -1,5 +1,8 @@
 using UnityEngine;
 
+// Delete this later
+
+
 public class FollowCamera : MonoBehaviour
 {
    [SerializeField] GameObject thingToFollow;
