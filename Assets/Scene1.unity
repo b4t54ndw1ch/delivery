@@ -2215,8 +2215,8 @@ GameObject:
   - component: {fileID: 490735560}
   - component: {fileID: 490735563}
   - component: {fileID: 490735564}
-  - component: {fileID: 490735565}
   - component: {fileID: 490735566}
+  - component: {fileID: 490735565}
   m_Layer: 0
   m_Name: TardimusPrime
   m_TagString: Untagged
@@ -2397,8 +2397,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 961e0090151ccd247869f6baaac3773f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Driver
-  steerSpeed: 200
-  moveSpeed: 20
+  steerSpeed: 300
+  moveSpeed: 30
 --- !u!1 &495848443
 GameObject:
   m_ObjectHideFlags: 0
