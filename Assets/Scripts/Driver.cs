@@ -17,6 +17,12 @@ public class Driver : MonoBehaviour
 
     }
 
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        moveSpeed = slowSpeed;
+        Debug.Log("Hit a Bump!");
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Boost")
@@ -24,10 +30,6 @@ public class Driver : MonoBehaviour
             moveSpeed = boostSpeed;
             Debug.Log("Hit a Boost!");
         }
-        else if (other.tag == "Bump")
-        {
-            moveSpeed = slowSpeed;
-            Debug.Log("Hit a Bump!");
-        }
+
     }
 }
