@@ -2,12 +2,22 @@ using UnityEngine;
 
 public class Delivery : MonoBehaviour
 {
+    [SerializeField] Color32 hasPackageColor = new Color32 (1, 1, 1, 1);
+    [SerializeField] Color32 noPackageColor = new Color32 (1, 1, 1, 1);
+
     [SerializeField] float destroyDelay = 0.1f;
+
+    SpriteRenderer spriteRenderer;
+
     bool hasTriangle = false;
     bool hasCircle = false;
     bool hasSquare = false;
     bool hasPackage = false;
 
+    void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
 
     void OnCollisionEnter2D(Collision2D other)
@@ -26,10 +36,12 @@ public class Delivery : MonoBehaviour
             }
             else
             {
-                Destroy(other.gameObject, destroyDelay);
                 hasTriangle = true;
                 hasPackage = true;
                 Debug.Log("TrianglePackage received.");
+                spriteRenderer.color = hasPackageColor;
+                Destroy(other.gameObject, destroyDelay);
+                
             }
 
         } else if (other.tag == "CirclePackage")
@@ -41,10 +53,11 @@ public class Delivery : MonoBehaviour
             }
             else
             {
-                Destroy(other.gameObject, destroyDelay);
                 hasCircle = true;
                 hasPackage = true;
                 Debug.Log("CirclePackage received.");
+                spriteRenderer.color = hasPackageColor;
+                Destroy(other.gameObject, destroyDelay);
             }
 
         } else if (other.tag == "SquarePackage")
@@ -56,10 +69,11 @@ public class Delivery : MonoBehaviour
             }
             else
             {
-                Destroy(other.gameObject, destroyDelay);
                 hasSquare = true;
                 hasPackage = true;
                 Debug.Log("SquarePackage received.");
+                spriteRenderer.color = hasPackageColor;
+                Destroy(other.gameObject, destroyDelay);
             }
 
         } else if (other.tag == "TriangleCustomer")
@@ -69,6 +83,7 @@ public class Delivery : MonoBehaviour
                 hasTriangle = false;
                 hasPackage = false;
                 Debug.Log("TriangleCustomer delivered.");
+                spriteRenderer.color = noPackageColor;
             }
             else
             {
@@ -81,6 +96,7 @@ public class Delivery : MonoBehaviour
             {
                 hasCircle = false;
                 hasPackage = false;
+                spriteRenderer.color = noPackageColor;
                 Debug.Log("CircleCustomer delivered.");
             }
             else
@@ -94,6 +110,7 @@ public class Delivery : MonoBehaviour
             {
                 hasSquare = false;
                 hasPackage = false;
+                spriteRenderer.color = noPackageColor;
                 Debug.Log("SquareCustomer delivered.");
             }
             else
