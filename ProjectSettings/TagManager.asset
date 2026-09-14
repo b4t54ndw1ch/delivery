@@ -13,6 +13,8 @@ TagManager:
   - House
   - Rock
   - Tree
+  - Boost
+  - Bump
   layers:
   - Default
   - TransparentFX
